@@ -39,5 +39,5 @@ HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 SetConsoleTextAttribute(hConsole, 2); // Color: Verde
 ```
 ---
-### Salida en Consola de Colores
+### Ejemplo de Salida en Consola
 ![output](/colors-output.png)
