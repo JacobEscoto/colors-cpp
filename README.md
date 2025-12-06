@@ -1,4 +1,4 @@
-# 🎨 Colores del Consola en C++
+# 🎨 Colores de Consola en C++
 
 Se muestra como utilizar el método `SetConsoleTextAttribute` en C++ para cambiar color de texto en consola
 
