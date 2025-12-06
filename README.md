@@ -1,5 +1,10 @@
 # 🎨 Colores en C++ (Consola)
 
+Se muestra como utilizar el método `SetConsoleTextAttribute` en C++ para cambiar color de texto en consola
+
+👀 Solo funciona para **Windows**
+
+---
 ### Tabla de Colores
 |Codigo|       Color      | 
 |:----:|:-----------------|
@@ -20,18 +25,18 @@
 | 14   | Amarillo Claro   |
 | 15   | Blanco Brillante |
 ---
-### Aplicar
+### Cómo Usarlo
 - Importar la librería **Windows.h**
 ```c++
 #import <Windows.h>
 ```
-- Instanciar el objeto **HANDLE**
+- Obtener el **HANDLE** de consola
 ```c++
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 ```
-- Cambiar el color de texto en Consola
+- Cambiar el color de texto
 ```c++
-SetConsoleTextAttribute(hConsole, 2); // Color Output: Verde
+SetConsoleTextAttribute(hConsole, 2); // Color: Verde
 ```
 ---
 ### Salida en Consola de Colores
