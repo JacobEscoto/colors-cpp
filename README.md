@@ -5,7 +5,7 @@ Se muestra como utilizar el método `SetConsoleTextAttribute` en C++ para cambia
 👀 Solo funciona para **Windows**
 
 ---
-### Tabla de Colores
+### Tabla de Colores de Texto (Foreground)
 |Codigo|       Color      | 
 |:----:|:-----------------|
 | 0    | Negro            |
