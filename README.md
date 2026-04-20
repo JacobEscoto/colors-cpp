@@ -4,7 +4,7 @@ This shows how to use the `SetConsoleTextAttribute` method in C++ to change the 
 
 👀 Only works for **Windows**
 
-### Text Color Chart (Foreground)
+## 📊 Color Chart
 
 |Code|       Color      | 
 |:--:|:-----------------|
@@ -25,17 +25,67 @@ This shows how to use the `SetConsoleTextAttribute` method in C++ to change the 
 | 14 | Light Yellow     |
 | 15 | Bright White     |
 
-### How to Use it
-- Import the **Windows.h** library
+## ❓ How to Use
+
+### Basic Usage
 ```c++
-#import <Windows.h>
-```
-- Get the console **HANDLE**
-```c++
+#include <Windows.h>
+
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+SetConsoleTextAttribute(hConsole, 2); // Green text
+cout << "Hello World!" << endl;
+SetConsoleTextAttribute(hConsole, 7); // Reset to white
 ```
-- Change text color
+
+### Combined Colors (Foreground + Background)
+
+You can combine a text color with a background color using the operator `|`:
+
 ```c++
-SetConsoleTextAttribute(hConsole, 2); // Color: Green
+// Yellow text on red background
+SetConsoleTextAttribute(hConsole, 6 | (4 << 4));
 ```
----
+
+### Complete Example - Color Table
+```c++
+#include <iostream>
+#include <iomanip>
+#include <Windows.h>
+using namespace std;
+
+void printColor(HANDLE hConsole, int color) {
+    SetConsoleTextAttribute(hConsole, color);
+    cout << "||||||||||||||||||||||||";
+    SetConsoleTextAttribute(hConsole, 15); // Reset to white
+}
+
+int main() {
+    string colors[16] = {
+        "Black", "Blue", "Green", "Cyan", "Red", "Purple",
+        "Yellow", "White", "Gray", "Light Blue", "Light Green",
+        "Light Aqua", "Light Red", "Pink", "Light Yellow", "Bright White"
+    };
+    
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    
+    cout << "+---------+--------------------------+--------------------------+\n";
+    cout << "| Code    | Color Name               | Output                   |\n";
+    cout << "+---------+--------------------------+--------------------------+\n";
+    
+    for (int i = 0; i < 16; i++)
+    {
+        cout << "| " << left << setw(7) << i
+             << "| " << left << setw(24) << colors[i]
+             << "| ";
+        printColor(hConsole, i);
+        cout << " |\n";
+    }
+    
+    cout << "+---------+--------------------------+--------------------------+\n";
+    return 0;
+}
+```
+
+## 📖 Resources
+
+[Microsoft Docs: SetConsoleTextAttribute](https://learn.microsoft.com/en-us/windows/console/setconsoletextattribute)
