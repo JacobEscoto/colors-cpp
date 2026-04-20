@@ -4,6 +4,8 @@ This shows how to use the `SetConsoleTextAttribute` method in C++ to change the 
 
 👀 Only works for **Windows**
 
+📁 Source file: `src/colors.cpp`
+
 ## 📊 Color Chart
 
 |Code|       Color      | 
@@ -34,7 +36,7 @@ This shows how to use the `SetConsoleTextAttribute` method in C++ to change the 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 SetConsoleTextAttribute(hConsole, 2); // Green text
 cout << "Hello World!" << endl;
-SetConsoleTextAttribute(hConsole, 7); // Reset to white
+SetConsoleTextAttribute(hConsole, 15); // Reset to bright white
 ```
 
 ### Combined Colors (Foreground + Background)
@@ -56,7 +58,7 @@ using namespace std;
 void printColor(HANDLE hConsole, int color) {
     SetConsoleTextAttribute(hConsole, color);
     cout << "||||||||||||||||||||||||";
-    SetConsoleTextAttribute(hConsole, 15); // Reset to white
+    SetConsoleTextAttribute(hConsole, 15); // Reset to bright white
 }
 
 int main() {
@@ -89,3 +91,19 @@ int main() {
 ## 📖 Resources
 
 [Microsoft Docs: SetConsoleTextAttribute](https://learn.microsoft.com/en-us/windows/console/setconsoletextattribute)
+
+## ▶️ Build and Run
+
+Compile and run `src/colors.cpp` from the repository root.
+
+### MinGW (g++)
+```bash
+g++ -std=c++17 -o colors.exe src/colors.cpp
+.\colors.exe
+```
+
+### MSVC (Developer Command Prompt)
+```bat
+cl /EHsc src\colors.cpp
+colors.exe
+```
